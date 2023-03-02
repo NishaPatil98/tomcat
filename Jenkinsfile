@@ -8,8 +8,6 @@ pipeline{
   stage("tomcat"){
     steps{
       sh "rm -rf /js-0/workspace/zz/"
-      
-        sh "chmod -R 777 /js-0/workspace/zz/ "
         sh "sudo yum install git -y"
         sh "sudo yum install docker -y"
         sh "sudo systemctl start docker"
