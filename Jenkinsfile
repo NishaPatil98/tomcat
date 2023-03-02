@@ -7,6 +7,7 @@ pipeline{
   stages{
   stage("tomcat"){
     steps{
+      sh "rm -rf *"
       
         sh "chmod -R 777 *"
         sh "sudo yum install git -y"
