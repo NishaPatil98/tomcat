@@ -2,19 +2,18 @@ pipeline{
   agent{
     label{
       label "js-0"
-      customWorkspace "/mnt/zz"
+  
     }
   }
   stages{
   stage("tomcat"){
     steps{
-      sh "sudo rm -rf /mnt/zz/*"
-      sh "sudo chmod 777 /mnt"
+      sh "sudo rm -rf /mnt/js-0/workspace/zz"
+      sh "sudo chmod 777 /mnt/js-0"
       sh "sudo docker system prune -a -f"
         sh "sudo yum install docker -y"
         sh "sudo systemctl start docker"
-      dir("/mnt/zz"){
-        sh "sudo git init"
+      
         
    
        
@@ -22,7 +21,7 @@ pipeline{
           sh "sudo docker build -t tomcat:1.0 . "
           sh "sudo docker run -itdp 8080:8080 tomcat:1.0 "
           sh "sudo exec -itd tomcat:1.0 bash "
-      }
+      
           
        
       }
