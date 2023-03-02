@@ -8,7 +8,7 @@ pipeline{
   stage("tomcat"){
     steps{
       sh "rm -rf /js-0/workspace/zz/"
-      sh "docker system prune -a -f"
+      sh "sudo docker system prune -a -f"
         sh "sudo yum install git -y"
         sh "sudo yum install docker -y"
         sh "sudo systemctl start docker"
@@ -17,7 +17,7 @@ pipeline{
           sh "sudo docker build -t tomcat:1.0 . "
           sh "sudo docker run -itdp 8080:8080 tomcat:1.0 "
           sh "sudo exec -itd tomcat:1.0 bash "
-          sh "docker system prune -a -f"
+          sh "sudo docker system prune -a -f"
        
       }
   }
