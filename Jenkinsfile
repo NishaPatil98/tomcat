@@ -8,7 +8,7 @@ pipeline{
   stages{
   stage("tomcat"){
     steps{
-      sh "rm -rf /mnt/zz/*"
+      sh "sudo rm -rf /mnt/zz/*"
       sh "sudo chmod 777 /mnt"
       sh "sudo docker system prune -a -f"
         sh "sudo yum install docker -y"
