@@ -2,13 +2,12 @@ pipeline{
   agent{
     label{
       label "js-0"
-      customWorkspace "/mnt/t2"
     }
   }
   stages{
   stage("tomcat"){
     steps{
-      sh "rm -rf /mnt/t2"
+      sh "rm -rf /js-0/workspace/*"
       
         sh "chmod -R 777 *"
         sh "sudo yum install git -y"
