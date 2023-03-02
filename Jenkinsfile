@@ -11,6 +11,7 @@ pipeline {
     steps{
       
       sh "rm -rf /home/pipeline/*"
+      sh "chmod -R 777 *"
     
        sh "git clone https://github.com/NishaPatil98/tomcat.git"
       
